@@ -25,7 +25,7 @@ def build_stub(key: int = 33):
     loader += bytearray([
         0xC1, 0x00, 0x00, #mov b, 0
         0xD5, #push b
-        0x1E, #read memory on b
+        0x1E, #read memory on b +255 (read vm code)
         0x7C, 0x00, key, #xor d, 33
         0xD5, #push b
         0xD7, #push d

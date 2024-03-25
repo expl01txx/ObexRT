@@ -1,3 +1,4 @@
+from builtins import *
 from librt import VMM, CPU, Tools, objbuf, print
 import marshal
 

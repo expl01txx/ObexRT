@@ -1,3 +1,5 @@
+from builtins import *
+
 class VMM:
     def __init__(self, size):
         self.memory = [0] * size
