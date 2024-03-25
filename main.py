@@ -53,6 +53,11 @@ def build_stub(key: int = 33):
 
 print("Building sources...")
 
+if os.path.exists("path"):
+    shutil.rmtree("stub")
+    
+os.mkdir("stub")
+
 #build sources
 for i in os.listdir("src"):
     if os.path.isfile(f"src/{i}"):

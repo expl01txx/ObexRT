@@ -321,6 +321,7 @@ def retn(cpu: CPU):
     bytes = bytearray(cpu.memory.memory[addr:addr+size])
     obj = marshal.loads(bytes)
     objbuf(obj)
+    del obj
 
 #end reg
 @cpu.opcode(0xFF)
