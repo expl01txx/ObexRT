@@ -1,4 +1,4 @@
-from librt import VMM, CPU, Tools, objbuf
+from librt import VMM, CPU, Tools, objbuf, print
 import marshal
 
 memory = VMM(8192)

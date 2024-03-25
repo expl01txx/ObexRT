@@ -63,4 +63,9 @@ class Tools:
     def read_bytes(cpu: CPU, index, size):
         return bytearray(cpu.memory.read_bytes(index, index+size))
 
+hk_print = print
+def print(*args, **kwargs):
+    hk_print("[ObexRT]: ", end='')
+    hk_print(*args, **kwargs)
+
 objbuf = exec

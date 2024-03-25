@@ -53,7 +53,7 @@ def build_stub(key: int = 33):
 
 print("Building sources...")
 
-if os.path.exists("path"):
+if os.path.exists("stub"):
     shutil.rmtree("stub")
     
 os.mkdir("stub")
@@ -68,7 +68,12 @@ for i in os.listdir("src"):
 print("Packing files...")
 with zipfile.ZipFile("output/app_obex.pyz", 'w') as z:
     print("Virtualize sources...")
-    z.writestr("app.bin", build_stub())
+    buf = b""
+    obj = build_stub()
+    print(f"Encrypt virtual code...")
+    for i in obj:
+        buf += (int(i) ^ 147).to_bytes(1, 'big')
+    z.writestr("app.bin", buf)
     print("Packing runtime...")
     for file in os.listdir("stub"):
         tmp = open("stub/" + file, 'rb').read()
